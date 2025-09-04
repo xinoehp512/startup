@@ -1,4 +1,4 @@
-# Your startup name here
+# Startup undecided.
 
 [My Notes](notes.md)
 
