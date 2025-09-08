@@ -17,9 +17,9 @@
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
@@ -33,12 +33,7 @@ Do you feel overwhelmed by all the tasks that you have to do? Do you have goals 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-```mermaid
-sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
-```
+
 
 ### Key features
 
@@ -56,15 +51,17 @@ I am going to use the required technologies in the following ways.
 
 - **HTML** - Structure of the application. Pages include login page, task enter page, schedule page, and social page.
 - **CSS** - Style of the application. Used to create good visual appeal.
-- **React** - Components for each page. Efficient updating of components with user input (task selection, page changes)
+- **React** - Components for each page. Efficient updating of components with user input and routing (task selection, page changes)
 - **Service** - Backend service with endpoints for:
     - login
     - entering tasks
     - retrieving tasks
     - sending user messages
     - retrieving user responses
+    - API call to Google Calendar
+    - Register, login, and logout users.
 - **DB/Login** - Store users, tasks, and messages. Register and login users.
-- **WebSocket** - Users are able to communicate with each other on public feeds 
+- **WebSocket** - Users are able to communicate with each other on public feeds.
 
 ## 🚀 AWS deliverable
 
