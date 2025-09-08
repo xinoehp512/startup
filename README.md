@@ -20,7 +20,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] A concise and compelling elevator pitch
 - [x] Description of key features
 - [x] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
@@ -29,7 +29,7 @@ Do you feel overwhelmed by all the tasks that you have to do? Do you have goals 
 
 ### Design
 
-![Design image](WebsiteDesignStartup.png)
+![Design image](WebsiteDesignStartup.jpg)
 
 
 
