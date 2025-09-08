@@ -1,10 +1,12 @@
-# Startup undecided.
-
-This was added from GitHub!
+# Timebox - task management and scheduling
 
 [My Notes](notes.md)
 
-A brief description of the application here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Do you feel overwhelmed by all the tasks that you have to do? Do you have goals that you are struggling to achieve? Do you wonder each night where the day has gone? Perhaps Timebox is for you! Timebox combines scheduling and to-do lists to create a day-to-day plan for your life. 
+-Break down high-level goals into simple tasks. 
+-Create daily habits to build a better you. 
+-Take control of your life by budgeting your time.
+-Interact with friends to keep yourself accountable.
 
 
 > [!NOTE]
