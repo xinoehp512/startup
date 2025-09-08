@@ -2,12 +2,6 @@
 
 [My Notes](notes.md)
 
-Do you feel overwhelmed by all the tasks that you have to do? Do you have goals that you are struggling to achieve? Do you wonder each night where the day has gone? Perhaps Timebox is for you! Timebox combines scheduling and to-do lists to create a day-to-day plan for your life. 
--Break down high-level goals into simple tasks. 
--Create daily habits to build a better you. 
--Take control of your life by budgeting your time.
--Interact with friends to keep yourself accountable.
-
 
 > [!NOTE]
 >  This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
@@ -22,7 +16,7 @@ Do you feel overwhelmed by all the tasks that you have to do? Do you have goals 
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
+- [x] Proper use of Markdown
 - [ ] A concise and compelling elevator pitch
 - [ ] Description of key features
 - [ ] Description of how you will use each technology
@@ -30,7 +24,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Do you feel overwhelmed by all the tasks that you have to do? Do you have goals that you are struggling to achieve? Do you wonder each night where the day has gone? Perhaps Timebox is for you! Timebox combines scheduling and to-do lists to create a day-to-day plan for your life. It allows you to break down high-level goals into simple tasks, create atomic habits, budget your time, and even share your progress with friends. Take control of your time, with Timebox.
+
 
 ### Design
 
@@ -47,20 +42,29 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login over HTTPS
+- Allow user to enter in tasks
+- Store database of user tasks persistently
+- Generate a schedule for the day based on tasks
+- Provide the user with feedback regarding tasks completed
+- Allow for sharing of task completions with friends
+- Store user messages and conversations
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Structure of the application. Pages include login page, task enter page, schedule page, and social page.
+- **CSS** - Style of the application. Used to create good visual appeal.
+- **React** - Components for each page. Efficient updating of components with user input (task selection, page changes)
+- **Service** - Backend service with endpoints for:
+    - login
+    - entering tasks
+    - retrieving tasks
+    - sending user messages
+    - retrieving user responses
+- **DB/Login** - Store users, tasks, and messages. Register and login users.
+- **WebSocket** - Users are able to communicate with each other on public feeds 
 
 ## 🚀 AWS deliverable
 
