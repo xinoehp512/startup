@@ -8,6 +8,9 @@ In this assignment, I created a web server using AWS. I also assigned an elastic
 Command to ssh in:   
 `ssh -i 260-super-important-server-password.pem ubuntu@98.80.12.47`
 
+### Route 53
+I acquired the domain name ryanrichards.click.
+
 ## Helpful links
 
 - [Course instruction](https://github.com/webprogramming260)
