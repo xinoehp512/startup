@@ -11,6 +11,9 @@ Command to ssh in:
 ### Route 53
 I acquired the domain name ryanrichards.click.
 
+### Caddy
+I updated the Caddy file so that LetsEncrypt would certify my website.
+
 ## Helpful links
 
 - [Course instruction](https://github.com/webprogramming260)
