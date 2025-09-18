@@ -16,6 +16,10 @@ I acquired the domain name ryanrichards.click.
 ### Caddy
 I updated the Caddy file so that LetsEncrypt would certify my website.
 
+### HTML
+`<a href="">` and `<img alt="" src="">`
+The `form` element sends to the server the input from each contained input element, labeled with the input element's id.
+
 ## Helpful links
 
 - [Course instruction](https://github.com/webprogramming260)
