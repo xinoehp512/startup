@@ -19,6 +19,12 @@ I updated the Caddy file so that LetsEncrypt would certify my website.
 ### HTML
 `<a href="">` and `<img alt="" src="">`
 The `form` element sends to the server the input from each contained input element, labeled with the input element's id.
+`<input type="">` and `<select><option></option></select`
+
+Command to deploy:
+```
+./deployFiles.sh -k ~/OneDrive/Documents/Ryan/.ssh/260-super-important-server-password.pem -h ryanrichards.click -s startup
+```
 
 ## Helpful links
 

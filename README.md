@@ -66,21 +66,21 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://ryanrichards.click).
 
 ## 🚀 HTML deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - Four HTML pages: a main page with the user's schedule, a login page, a page to add tasks, and a chat page.
+- [x] **Proper HTML element usage** - Body, header, footer, nav and main elements all properly used.
+- [x] **Links** - Each page contains links to the other pages in the header. The login page links automatically to the main page.
+- [x] **Text** - Textual content headers, user-generated textual content.
+- [x] **3rd party API placeholder** - The finished application will retrieve information from Google Calendar to fill out the schedule.
+- [x] **Images** - Images used for user avatars.
+- [x] **Login placeholder** - Login page with input fields and submit button, as well as a placeholder to sign in with Google. Username placeholder in the header.
+- [x] **DB data placeholder** - User tasks and message histories will be stored in a database.
+- [x] **WebSocket placeholder** - As users submit messages to chat, the page will be updated in real-time to reflect the new messages.
 
 ## 🚀 CSS deliverable
 
