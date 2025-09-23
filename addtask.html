@@ -22,7 +22,48 @@
     </header>
 
     <main>
-        <p>I'm a content block.</p>
+        <form method="get" action="index.html">
+            <div>
+                <label>Name</label><input type="text">
+            </div>
+            <div>
+                <label>Type</label>
+                <select>
+                    <option>Work</option>
+                    <option>School</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div>
+                <label>Repeat?</label>
+                <select>
+                    <option>No</option>
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>Other...</option>
+                </select>
+            </div>
+            <div>
+                <label>Start Date</label><input type="datetime-local">
+            </div>
+            <div>
+                <label>Due Date</label><input type="datetime-local">
+            </div>
+            <div>
+                <label>Task Length</label>
+                <select>
+                    <option>5 minutes</option>
+                    <option>15 minutes</option>
+                    <option>30 minutes</option>
+                    <option>1 hour</option>
+                </select>
+            </div>
+            <div>
+                <label>Scheduled Time</label><input type="time">
+            </div>
+            
+            <button type="submit">Add Task</button>
+        </form>
     </main>
 
     <footer>
