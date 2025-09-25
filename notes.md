@@ -7,7 +7,7 @@ In this assignment, I learned how to create a repository from a template. I also
 In this assignment, I created a web server using AWS. I also assigned an elastic IP address: 54.175.244.41.  
 Command to ssh in:   
 ```
-ssh -i 260-super-important-server-password.pem ubuntu@54.175.244.41
+ssh -i ~/OneDrive/Documents/Ryan/.ssh/260-super-important-server-password.pem ubuntu@54.175.244.41
 ```
 
 ### Route 53
