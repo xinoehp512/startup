@@ -25,6 +25,10 @@ Command to deploy:
 ```
 ./deployFiles.sh -k ~/OneDrive/Documents/Ryan/.ssh/260-super-important-server-password.pem -h ryanrichards.click -s startup
 ```
+Command to deploy simon:
+```
+./deployFiles.sh -k ~/OneDrive/Documents/Ryan/.ssh/260-super-important-server-password.pem -h ryanrichards.click -s simon
+```
 
 ## Helpful links
 
