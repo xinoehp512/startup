@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="addtask.css" />
 </head>
 
 <body>
@@ -35,11 +36,11 @@
     <main>
         <form method="get" action="index.html">
             <div>
-                <label>Name</label><input type="text">
+                <label>Name</label><input type="text" class="input">
             </div>
             <div>
                 <label>Type</label>
-                <select>
+                <select class="input">
                     <option>Work</option>
                     <option>School</option>
                     <option>Other</option>
@@ -47,7 +48,7 @@
             </div>
             <div>
                 <label>Repeat?</label>
-                <select>
+                <select class="input">
                     <option>No</option>
                     <option>Daily</option>
                     <option>Weekly</option>
@@ -55,14 +56,14 @@
                 </select>
             </div>
             <div>
-                <label>Start Date</label><input type="datetime-local">
+                <label>Start Date</label><input type="datetime-local" class="input">
             </div>
             <div>
-                <label>Due Date</label><input type="datetime-local">
+                <label>Due Date</label><input type="datetime-local" class="input">
             </div>
             <div>
                 <label>Task Length</label>
-                <select>
+                <select class="input">
                     <option>5 minutes</option>
                     <option>15 minutes</option>
                     <option>30 minutes</option>
@@ -70,7 +71,7 @@
                 </select>
             </div>
             <div>
-                <label>Scheduled Time</label><input type="time">
+                <label>Scheduled Time</label><input type="time" class="input">
             </div>
 
             <button type="submit">Add Task</button>
