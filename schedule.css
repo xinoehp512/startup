@@ -1,0 +1,75 @@
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.schedule {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    height: 100%;
+    background-color: azure;
+    box-sizing: border-box;
+}
+
+.hours {
+    display: flex;
+    flex: 0 0 auto;
+    font: 2em sans-serif;
+    background-color: hsl(240 45.5% 34.5%);
+    color: white;
+}
+
+.hour {
+    padding: 20px;
+    border-left: 3px solid white;
+}
+
+.hour,
+.task-block {
+    width: 25vw;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.task-block {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.task {
+    background-color: hsl(240 45.5% 80.5%);
+    flex: auto;
+    border-left: 3px solid white;
+    height: 10vh;
+    border-radius: 5px;
+    text-align: center;
+    overflow: auto;
+}
+
+@media (orientation: portrait) {
+    .schedule {
+        flex-direction: row;
+    }
+
+    .hours,
+    .tasks,
+    .task-block {
+        flex-direction: column;
+    }
+
+    .task {
+        border-bottom: 3px solid white;
+    }
+
+    .hour {
+        flex: auto;
+        border-bottom: 3px solid white;
+    }
+}
