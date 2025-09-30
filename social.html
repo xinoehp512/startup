@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="social.css" />
 </head>
 
 <body>
@@ -33,38 +34,51 @@
     </header>
 
     <main>
-        <section>
+        <section class="friends-bar">
             <h1>Friends</h1>
-            <ul>
-                <li><img src="favicon.png">Alice</li>
-                <li><img src="favicon.png">Bob</li>
-                <li><img src="favicon.png">Eve</li>
-            </ul>
+            <div class="friends-list">
+                <div class="friend">
+                    <div class="profile-img"><img src="favicon.png"></div>
+                    <div class="profile-name">Alice</div>
+                </div>
+                <div class="friend">
+                    <div class="profile-img"><img src="favicon.png"></div>
+                    <div class="profile-name">Bob</div>
+                </div>
+                <div class="friend">
+                    <div class="profile-img"><img src="favicon.png"></div>
+                    <div class="profile-name">Eve</div>
+                </div>
+            </div>
         </section>
-        <section>
-            <h1>Chat</h1>
-            <div>
-                <h2>User Unknown completed all their tasks today!</h2>
-                <ul>
-                    <li>
+        <section class="chat">
+            <div class="post">
+                <div class="message">User Unknown completed all their tasks today!</div>
+                <div class="responses">
+                    <div class="response">
                         <img src="favicon.png">
                         Alice
                         <div>
                             <p>Way to go, User Unknown!</p>
                         </div>
-                    </li>
-                    <li>
+                    </div>
+                    <div class="response">
                         <img src="favicon.png">
                         Bob
                         <div>
                             <p>You can do this!</p>
                         </div>
-                    </li>
-                </ul>
-                <form method="get" action="social.html">
-                    <input type="text" placeholder="Commenting as User Unknown">
-                    <button type="submit">Reply</button>
-                </form>
+                    </div>
+                    <div class="response">
+                        <img src="favicon.png">
+                        User Unknown
+                        <form method="get" action="social.html">
+                            <input type="text" class="user-input" placeholder="Commenting as User Unknown">
+                            <button type="submit">Reply</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>

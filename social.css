@@ -1,0 +1,72 @@
+main {
+    flex-direction: row;
+}
+
+.friends-bar {
+    background-color: aliceblue;
+    width: 25vw;
+    height: 100%;
+    border-right: 2px solid black;
+}
+
+.friends-bar h1 {
+    border-bottom: 2px solid black;
+    margin-bottom: 0;
+}
+
+.friends-list {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.friend {
+    display: flex;
+    background-color: rgb(190, 234, 255);
+    margin: 2px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: x-large;
+}
+
+.chat {
+    background-color: azure;
+    flex: auto;
+    height: 100%;
+}
+
+.profile-img {
+    display: flex;
+    width: 5vw;
+    height: 5vw;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.message {
+    background-color: rgb(190, 234, 255);
+    width: 75%;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 5px;
+    min-height: 10vh;
+    padding: 5px;
+}
+
+.responses {
+    margin-left: 20px;
+}
+
+.response {
+    background-color: rgb(190, 234, 255);
+    width: 60%;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.user-input {
+    width: 100%;
+}
