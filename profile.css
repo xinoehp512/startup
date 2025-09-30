@@ -1,0 +1,20 @@
+.profile-img {
+    display: flex;
+    width: 5vw;
+    height: 5vw;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-card {
+    display: flex;
+    background-color: #8080ff;
+    padding: 1em;
+    border-radius: 1em;
+    align-items: center;
+}
+
+.profile-name {
+    margin: 5px;
+}
