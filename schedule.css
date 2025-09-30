@@ -64,6 +64,10 @@ main {
         flex-direction: column;
     }
 
+    .hours {
+        font-size: x-large;
+    }
+
     .task {
         border-bottom: 3px solid white;
     }

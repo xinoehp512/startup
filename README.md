@@ -86,12 +86,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - Each included
+- [x] **Navigation elements** - I used the Bootstrap navbar.
+- [x] **Responsive to window resizing** - Schedule changes to column view in portrait mode: taskbar shrinks into a drop-down.
+- [x] **Application elements** - The schedule, task add and chat pages are all included.
+- [x] **Application text content** - Consistent sans-serif font used across the site.
+- [x] **Application images** - Profile images placed in circle cutouts.
 
 ## 🚀 React part 1: Routing deliverable
 
