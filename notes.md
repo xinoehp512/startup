@@ -30,6 +30,15 @@ Command to deploy simon:
 ./deployFiles.sh -k ~/OneDrive/Documents/Ryan/.ssh/260-super-important-server-password.pem -h ryanrichards.click -s simon
 ```
 
+### CSS
+CSS is painful! I should use Bootstrap more.
+
+### React
+
+
+
+
+
 ## Helpful links
 
 - [Course instruction](https://github.com/webprogramming260)
