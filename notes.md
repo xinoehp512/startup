@@ -35,6 +35,30 @@ CSS is painful! I should use Bootstrap more.
 
 ### React
 
+#### Vite commands
+
+React Template
+```
+npm create vite@latest <directory_name> -- --template react
+cd <directory_name>
+npm install
+npm run dev
+```
+
+Install Vite
+```
+npm init -y
+npm install vite@latest -D
+```
+
+NPM scripts
+```
+"scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+```
 
 
 
