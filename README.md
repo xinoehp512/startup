@@ -97,9 +97,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
+- [x] **Bundled using Vite** - Vite has been installed and used.
+- [x] **Components** - Each HTML page was converted into a component.
+- [x] **Router** - Clicking on the navbar dynamically loads pages without the need for repeated code for the header and footer.
 
 ## 🚀 React part 2: Reactivity deliverable
 
