@@ -6,7 +6,7 @@ import './addtask.css';
 export function AddTask() {
     return (
         <main>
-            <form method="get" action="index.html">
+            <form method="get" action="index.html" className="addtask">
                 <div>
                     <label>Name</label><input type="text" className="input" />
                 </div>

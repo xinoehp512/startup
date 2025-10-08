@@ -1,4 +1,4 @@
-form {
+.addtask {
     display: flex;
     flex-direction: column;
     background-color: #aee1f5;
@@ -6,16 +6,16 @@ form {
     border-radius: 1rem;
 }
 
-form div {
+.addtask div {
     display: flex;
     margin-bottom: 0.5rem;
 }
 
-form div * {
+.addtask div * {
     flex: auto;
     width: 50%;
 }
 
-form button {
+.addtask button {
     align-self: center;
 }
