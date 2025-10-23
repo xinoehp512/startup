@@ -4,9 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './social.css';
 
 export function Social({ userName }) {
+    console.log("Top of social!");
     const [posts, setPosts] = React.useState([]);
     const [message, setMessage] = React.useState("");
     React.useEffect(() => {
+        console.log("Top of useEffect!");
         const postsText = localStorage.getItem('posts');
         if (postsText) {
             setPosts(JSON.parse(postsText));
@@ -24,8 +26,10 @@ export function Social({ userName }) {
             localStorage.setItem('posts', JSON.stringify(starterPost))
             setPosts(starterPost)
         }
+        console.log("Bottom of useEffect!");
     }, []);
     function addResponse(post, msg) {
+        console.log("Top of addResponse!");
         let posts = []
         const postsText = localStorage.getItem('posts');
         if (postsText) {
@@ -38,8 +42,10 @@ export function Social({ userName }) {
             }
         }
         if (targetPost == null) return;
-        targetPost.responses.push({ user: userName, message: msg })
-        localStorage.setItem('posts', JSON.stringify(posts))
+        targetPost.responses.push({ user: userName, message: msg });
+        localStorage.setItem('posts', JSON.stringify(posts));
+
+        console.log("Bottom of addResponse!");
     }
     const postRows = posts.map((post, idx) => {
         const responses = post.responses.map((r, i) => {
@@ -56,7 +62,7 @@ export function Social({ userName }) {
                 <div className="response">
                     <img src="favicon.png" />
                     {userName}
-                    <form method="get" action="social.html">
+                    <form method="get">
                         <input type="text" className="user-input" onChange={(e) => setMessage(e.target.value)} placeholder={"Commenting as " + userName} />
                         <button type="submit" onClick={() => addResponse(post, message)}>Reply</button>
                     </form>
@@ -65,6 +71,8 @@ export function Social({ userName }) {
 
         </div>
     })
+
+    console.log("Bottom of social!");
     return (
         <main>
             <section className="friends-bar">
