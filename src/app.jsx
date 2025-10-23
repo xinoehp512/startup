@@ -32,7 +32,7 @@ function App() {
                   <Nav.Link as={NavLink} className='nav-link' to="login">Logout</Nav.Link>
                   <Nav.Link as={NavLink} className='nav-link' to="addtask">Add Task</Nav.Link>
                   <Nav.Link as={NavLink} className='nav-link' to="social">Chat with Friends</Nav.Link>
-                  <Nav.Link as={NavLink} className='nav-link' to="profile">User Unknown</Nav.Link>
+                  <Nav.Link as={NavLink} className='nav-link' to="profile">{userName}</Nav.Link>
                 </Nav>) :
                 (<Nav className="navbar-nav me-auto">
                   <Nav.Link as={NavLink} className='nav-link' to="login">Login</Nav.Link>
@@ -74,8 +74,8 @@ function App() {
           exact
         />
         <Route path='/addtask' element={<AddTask />} exact />
-        <Route path='/social' element={<Social />} exact />
-        <Route path='/profile' element={<Profile />} exact />
+        <Route path='/social' element={<Social userName={userName} />} exact />
+        <Route path='/profile' element={<Profile userName={userName} />} exact />
         <Route path='*' element={<NotFound />} />
       </Routes>
 

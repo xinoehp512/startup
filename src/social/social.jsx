@@ -3,7 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './social.css';
 
-export function Social() {
+export function Social({ userName }) {
     const [posts, setPosts] = React.useState([]);
     React.useEffect(() => {
         const postsText = localStorage.getItem('posts');
@@ -23,23 +23,23 @@ export function Social() {
             setPosts(starterPost)
         }
     }, []);
-    const postRows = posts.map((post) => {
-        const responses = post.responses.map((r) => {
-            return <div className="response">
+    const postRows = posts.map((post, idx) => {
+        const responses = post.responses.map((r, i) => {
+            return <div className="response" key={i}>
                 <img src="favicon.png" />
                 {r.user}
                 <div><p>{r.message}</p></div>
             </div>
         });
-        return <div className="post">
+        return <div className="post" key={idx}>
             <div className="message">{post.message}</div>
             <div className="responses">
                 {responses}
                 <div className="response">
                     <img src="favicon.png" />
-                    User Unknown
+                    {userName}
                     <form method="get" action="social.html">
-                        <input type="text" className="user-input" placeholder="Commenting as User Unknown" />
+                        <input type="text" className="user-input" placeholder={"Commenting as " + userName} />
                         <button type="submit">Reply</button>
                     </form>
                 </div>
