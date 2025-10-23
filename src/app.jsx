@@ -26,22 +26,53 @@ function App() {
             <Navbar.Brand href="schedule.html">Timebox</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarSupportedContent" />
             <Navbar.Collapse id="navbarSupportedContent">
-              {
+              {authState === AuthState.Authenticated ?
                 (<Nav className="navbar-nav me-auto">
-                  <Nav.Link as={NavLink} className='nav-link' to="">My Schedule</Nav.Link>
-                  <Nav.Link as={NavLink} className='nav-link' to="login">Login</Nav.Link>
+                  <Nav.Link as={NavLink} className='nav-link' to="schedule">My Schedule</Nav.Link>
+                  <Nav.Link as={NavLink} className='nav-link' to="login">Logout</Nav.Link>
                   <Nav.Link as={NavLink} className='nav-link' to="addtask">Add Task</Nav.Link>
                   <Nav.Link as={NavLink} className='nav-link' to="social">Chat with Friends</Nav.Link>
                   <Nav.Link as={NavLink} className='nav-link' to="profile">User Unknown</Nav.Link>
-                </Nav>)}
+                </Nav>) :
+                (<Nav className="navbar-nav me-auto">
+                  <Nav.Link as={NavLink} className='nav-link' to="login">Login</Nav.Link>
+                </Nav>)
+              }
             </Navbar.Collapse>
           </Container>
         </Navbar>
       </header>
 
       <Routes>
-        <Route path='/' element={<Schedule />} exact />
-        <Route path='/login' element={< Login />} exact />
+        <Route
+          path='/'
+          element={
+            <Login
+              userName={userName}
+              authState={authState}
+              onAuthChange={(userName, authState) => {
+                setAuthState(authState);
+                setUserName(userName);
+              }}
+            />
+          }
+          exact
+        />
+        <Route path='/schedule' element={<Schedule />} exact />
+        <Route
+          path='/login'
+          element={
+            <Login
+              userName={userName}
+              authState={authState}
+              onAuthChange={(userName, authState) => {
+                setAuthState(authState);
+                setUserName(userName);
+              }}
+            />
+          }
+          exact
+        />
         <Route path='/addtask' element={<AddTask />} exact />
         <Route path='/social' element={<Social />} exact />
         <Route path='/profile' element={<Profile />} exact />
