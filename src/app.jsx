@@ -28,11 +28,11 @@ function App() {
             <Navbar.Collapse id="navbarSupportedContent">
               {authState === AuthState.Authenticated ?
                 (<Nav className="navbar-nav me-auto">
-                  <Nav.Link as={NavLink} className='nav-link' to="schedule">My Schedule</Nav.Link>
-                  <Nav.Link as={NavLink} className='nav-link' to="login">Logout</Nav.Link>
-                  <Nav.Link as={NavLink} className='nav-link' to="addtask">Add Task</Nav.Link>
+                  {/* <Nav.Link as={NavLink} className='nav-link' to="schedule">My Schedule</Nav.Link> */}
+                  {/* <Nav.Link as={NavLink} className='nav-link' to="addtask">Add Task</Nav.Link> */}
                   <Nav.Link as={NavLink} className='nav-link' to="social">Chat with Friends</Nav.Link>
                   <Nav.Link as={NavLink} className='nav-link' to="profile">{userName}</Nav.Link>
+                  <Nav.Link as={NavLink} className='nav-link' to="login">Logout</Nav.Link>
                 </Nav>) :
                 (<Nav className="navbar-nav me-auto">
                   <Nav.Link as={NavLink} className='nav-link' to="login">Login</Nav.Link>
