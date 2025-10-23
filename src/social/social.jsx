@@ -4,6 +4,47 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './social.css';
 
 export function Social() {
+    const [posts, setPosts] = React.useState([]);
+    React.useEffect(() => {
+        const postsText = localStorage.getItem('posts');
+        if (postsText) {
+            setPosts(JSON.parse(postsText));
+        } else {
+            setPosts([
+                {
+                    message: "User Unknown completed all their tasks today!",
+                    responses: [
+                        { user: "Alice", message: "Way to go!" },
+                        { user: "Bob", message: "You can do this!" },
+                    ]
+                }
+            ])
+        }
+    }, []);
+    const postRows = posts.map((post) => {
+        const responses = post.responses.map((r) => {
+            return <div className="response">
+                <img src="favicon.png" />
+                {r.user}
+                <div><p>{r.message}</p></div>
+            </div>
+        });
+        return <div className="post">
+            <div className="message">{post.message}</div>
+            <div className="responses">
+                {responses}
+                <div className="response">
+                    <img src="favicon.png" />
+                    User Unknown
+                    <form method="get" action="social.html">
+                        <input type="text" className="user-input" placeholder="Commenting as User Unknown" />
+                        <button type="submit">Reply</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    })
     return (
         <main>
             <section className="friends-bar">
@@ -24,34 +65,7 @@ export function Social() {
                 </div>
             </section>
             <section className="chat">
-                <div className="post">
-                    <div className="message">User Unknown completed all their tasks today!</div>
-                    <div className="responses">
-                        <div className="response">
-                            <img src="favicon.png" />
-                            Alice
-                            <div>
-                                <p>Way to go, User Unknown!</p>
-                            </div>
-                        </div>
-                        <div className="response">
-                            <img src="favicon.png" />
-                            Bob
-                            <div>
-                                <p>You can do this!</p>
-                            </div>
-                        </div>
-                        <div className="response">
-                            <img src="favicon.png" />
-                            User Unknown
-                            <form method="get" action="social.html">
-                                <input type="text" className="user-input" placeholder="Commenting as User Unknown" />
-                                <button type="submit">Reply</button>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
+                {postRows}
             </section>
         </main>
     );
