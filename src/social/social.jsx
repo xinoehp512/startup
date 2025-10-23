@@ -10,7 +10,7 @@ export function Social() {
         if (postsText) {
             setPosts(JSON.parse(postsText));
         } else {
-            setPosts([
+            const starterPost = [
                 {
                     message: "User Unknown completed all their tasks today!",
                     responses: [
@@ -18,7 +18,9 @@ export function Social() {
                         { user: "Bob", message: "You can do this!" },
                     ]
                 }
-            ])
+            ]
+            localStorage.setItem('posts', JSON.stringify(starterPost))
+            setPosts(starterPost)
         }
     }, []);
     const postRows = posts.map((post) => {
