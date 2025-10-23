@@ -5,6 +5,7 @@ import './social.css';
 
 export function Social({ userName }) {
     const [posts, setPosts] = React.useState([]);
+    const [message, setMessage] = React.useState("");
     React.useEffect(() => {
         const postsText = localStorage.getItem('posts');
         if (postsText) {
@@ -12,6 +13,7 @@ export function Social({ userName }) {
         } else {
             const starterPost = [
                 {
+                    id: 0,
                     message: "User Unknown completed all their tasks today!",
                     responses: [
                         { user: "Alice", message: "Way to go!" },
@@ -23,6 +25,22 @@ export function Social({ userName }) {
             setPosts(starterPost)
         }
     }, []);
+    function addResponse(post, msg) {
+        let posts = []
+        const postsText = localStorage.getItem('posts');
+        if (postsText) {
+            posts = JSON.parse(postsText);
+        }
+        let targetPost = null;
+        for (const p of posts) {
+            if (p.id === post.id) {
+                targetPost = p;
+            }
+        }
+        if (targetPost == null) return;
+        targetPost.responses.push({ user: userName, message: msg })
+        localStorage.setItem('posts', JSON.stringify(posts))
+    }
     const postRows = posts.map((post, idx) => {
         const responses = post.responses.map((r, i) => {
             return <div className="response" key={i}>
@@ -39,8 +57,8 @@ export function Social({ userName }) {
                     <img src="favicon.png" />
                     {userName}
                     <form method="get" action="social.html">
-                        <input type="text" className="user-input" placeholder={"Commenting as " + userName} />
-                        <button type="submit">Reply</button>
+                        <input type="text" className="user-input" onChange={(e) => setMessage(e.target.value)} placeholder={"Commenting as " + userName} />
+                        <button type="submit" onClick={() => addResponse(post, message)}>Reply</button>
                     </form>
                 </div>
             </div>
