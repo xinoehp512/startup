@@ -6,9 +6,7 @@ const app = express();
 
 const authCookieName = 'token';
 
-// The scores and users are saved in memory and disappear whenever the service is restarted.
 let users = [];
-let scores = [];
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -59,6 +57,16 @@ apiRouter.delete('/auth/logout', async (req, res) => {
     }
     res.clearCookie(authCookieName);
     res.status(204).end();
+});
+
+// Get the current user's username.
+apiRouter.get('/username', async (req, res) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
+    if (user) {
+        res.send({ userName: user.email });
+    } else {
+        res.send({ userName: "" });
+    }
 });
 
 // Default error handler

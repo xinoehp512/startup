@@ -15,9 +15,23 @@ import { AuthState } from './login/authState';
 
 
 function App() {
-  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const [userName, setUserName] = React.useState('');
   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
+
+  React.useEffect(() => {
+    async function getUsername() {
+      const response = await fetch("/api/username");
+      if (response?.status === 200) {
+        const body = await response.json();
+        setUserName(body.userName);
+      } else {
+        const body = await response.json();
+        setDisplayError(`⚠ Error: ${body.msg}`);
+      }
+    }
+    getUsername();
+  }, [authState])
   return (
     <BrowserRouter>
       <header>
