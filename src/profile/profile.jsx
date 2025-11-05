@@ -5,9 +5,9 @@ import './profile.css';
 export function Profile({ userName }) {
     return (
         <main>
-            <div class="profile-card">
-                <div class="profile-img"><img src="favicon.png" /></div>
-                <div class="profile-name">{userName}</div>
+            <div className="profile-card">
+                <div className="profile-img"><img src="favicon.png" /></div>
+                <div className="profile-name">{userName}</div>
             </div>
         </main>
     );

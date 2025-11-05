@@ -20,24 +20,21 @@ export function Social({ userName }) {
         }
         getPosts();
     }, []);
-    function addResponse(post, msg) {
-        console.log("Top of addResponse!");
-        let posts = []
-        const postsText = localStorage.getItem('posts');
-        if (postsText) {
-            posts = JSON.parse(postsText);
+    async function addResponse(postID, msg) {
+        const response = await fetch("/api/social/posts/responses", {
+            method: "post",
+            body: JSON.stringify({ id: postID, message: msg, username: userName }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+        if (response?.status === 200) {
+            const body = await response.json();
+            setPosts(body.posts)
+        } else {
+            const body = await response.json();
+            console.log(`⚠ Error: ${body.msg}`);
         }
-        let targetPost = null;
-        for (const p of posts) {
-            if (p.id === post.id) {
-                targetPost = p;
-            }
-        }
-        if (targetPost == null) return;
-        targetPost.responses.push({ user: userName, message: msg });
-        localStorage.setItem('posts', JSON.stringify(posts));
-
-        console.log("Bottom of addResponse!");
     }
     const postRows = posts.map((post, idx) => {
         const responses = post.responses.map((r, i) => {
@@ -54,10 +51,8 @@ export function Social({ userName }) {
                 <div className="response">
                     <img src="favicon.png" />
                     {userName}
-                    <form method="get">
-                        <input type="text" className="user-input" onChange={(e) => setMessage(e.target.value)} placeholder={"Commenting as " + userName} />
-                        <button type="submit" onClick={() => addResponse(post, message)}>Reply</button>
-                    </form>
+                    <input type="text" className="user-input" onChange={(e) => setMessage(e.target.value)} placeholder={"Commenting as " + userName} />
+                    <button type="submit" onClick={() => addResponse(post.id, message)}>Reply</button>
                 </div>
             </div>
 

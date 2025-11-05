@@ -24,6 +24,7 @@ function App() {
       const response = await fetch("/api/username");
       if (response?.status === 200) {
         const body = await response.json();
+        setAuthState(AuthState.Authenticated);
         setUserName(body.userName);
       } else {
         const body = await response.json();
@@ -31,7 +32,7 @@ function App() {
       }
     }
     getUsername();
-  }, [authState])
+  }, [])
   return (
     <BrowserRouter>
       <header>

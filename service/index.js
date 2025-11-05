@@ -83,6 +83,17 @@ apiRouter.get('/social/posts', verifyAuth, async (req, res) => {
     res.send({ posts: posts })
 });
 
+apiRouter.post('/social/posts/responses', verifyAuth, (req, res) => {
+    const { id, message, username } = req.body;
+    const post = posts.find((post) => post.id == id)
+    if (post) {
+        post.responses.push({ user: username, message: message })
+        res.send({ posts: posts });
+    } else {
+        res.status(404).send({ msg: 'Post not found.' });
+    }
+});
+
 // Default error handler
 app.use(function (err, req, res, next) {
     res.status(500).send({ type: err.name, message: err.message });
