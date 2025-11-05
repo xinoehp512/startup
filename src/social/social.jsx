@@ -3,7 +3,76 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './social.css';
 
-export function Social() {
+export function Social({ userName }) {
+    console.log("Top of social!");
+    const [posts, setPosts] = React.useState([]);
+    const [message, setMessage] = React.useState("");
+    React.useEffect(() => {
+        console.log("Top of useEffect!");
+        const postsText = localStorage.getItem('posts');
+        if (postsText) {
+            setPosts(JSON.parse(postsText));
+        } else {
+            const starterPost = [
+                {
+                    id: 0,
+                    message: "User Unknown completed all their tasks today!",
+                    responses: [
+                        { user: "Alice", message: "Way to go!" },
+                        { user: "Bob", message: "You can do this!" },
+                    ]
+                }
+            ]
+            localStorage.setItem('posts', JSON.stringify(starterPost))
+            setPosts(starterPost)
+        }
+        console.log("Bottom of useEffect!");
+    }, []);
+    function addResponse(post, msg) {
+        console.log("Top of addResponse!");
+        let posts = []
+        const postsText = localStorage.getItem('posts');
+        if (postsText) {
+            posts = JSON.parse(postsText);
+        }
+        let targetPost = null;
+        for (const p of posts) {
+            if (p.id === post.id) {
+                targetPost = p;
+            }
+        }
+        if (targetPost == null) return;
+        targetPost.responses.push({ user: userName, message: msg });
+        localStorage.setItem('posts', JSON.stringify(posts));
+
+        console.log("Bottom of addResponse!");
+    }
+    const postRows = posts.map((post, idx) => {
+        const responses = post.responses.map((r, i) => {
+            return <div className="response" key={i}>
+                <img src="favicon.png" />
+                {r.user}
+                <div><p>{r.message}</p></div>
+            </div>
+        });
+        return <div className="post" key={idx}>
+            <div className="message">{post.message}</div>
+            <div className="responses">
+                {responses}
+                <div className="response">
+                    <img src="favicon.png" />
+                    {userName}
+                    <form method="get">
+                        <input type="text" className="user-input" onChange={(e) => setMessage(e.target.value)} placeholder={"Commenting as " + userName} />
+                        <button type="submit" onClick={() => addResponse(post, message)}>Reply</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    })
+
+    console.log("Bottom of social!");
     return (
         <main>
             <section className="friends-bar">
@@ -24,34 +93,7 @@ export function Social() {
                 </div>
             </section>
             <section className="chat">
-                <div className="post">
-                    <div className="message">User Unknown completed all their tasks today!</div>
-                    <div className="responses">
-                        <div className="response">
-                            <img src="favicon.png" />
-                            Alice
-                            <div>
-                                <p>Way to go, User Unknown!</p>
-                            </div>
-                        </div>
-                        <div className="response">
-                            <img src="favicon.png" />
-                            Bob
-                            <div>
-                                <p>You can do this!</p>
-                            </div>
-                        </div>
-                        <div className="response">
-                            <img src="favicon.png" />
-                            User Unknown
-                            <form method="get" action="social.html">
-                                <input type="text" className="user-input" placeholder="Commenting as User Unknown" />
-                                <button type="submit">Reply</button>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
+                {postRows}
             </section>
         </main>
     );
