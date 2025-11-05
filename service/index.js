@@ -7,6 +7,16 @@ const app = express();
 const authCookieName = 'token';
 
 let users = [];
+let posts = [
+    {
+        id: 0,
+        message: "User Unknown completed all their tasks today!",
+        responses: [
+            { user: "Alice", message: "Way to go!" },
+            { user: "Bob", message: "You can do this!" },
+        ]
+    }
+];
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -67,6 +77,10 @@ apiRouter.get('/username', async (req, res) => {
     } else {
         res.send({ userName: "" });
     }
+});
+
+apiRouter.get('/social/posts', verifyAuth, async (req, res) => {
+    res.send({ posts: posts })
 });
 
 // Default error handler

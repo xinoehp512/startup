@@ -8,25 +8,17 @@ export function Social({ userName }) {
     const [posts, setPosts] = React.useState([]);
     const [message, setMessage] = React.useState("");
     React.useEffect(() => {
-        console.log("Top of useEffect!");
-        const postsText = localStorage.getItem('posts');
-        if (postsText) {
-            setPosts(JSON.parse(postsText));
-        } else {
-            const starterPost = [
-                {
-                    id: 0,
-                    message: "User Unknown completed all their tasks today!",
-                    responses: [
-                        { user: "Alice", message: "Way to go!" },
-                        { user: "Bob", message: "You can do this!" },
-                    ]
-                }
-            ]
-            localStorage.setItem('posts', JSON.stringify(starterPost))
-            setPosts(starterPost)
+        async function getPosts() {
+            const response = await fetch("/api/social/posts");
+            if (response?.status === 200) {
+                const body = await response.json();
+                setPosts(body.posts);
+            } else {
+                const body = await response.json();
+                setDisplayError(`⚠ Error: ${body.msg}`);
+            }
         }
-        console.log("Bottom of useEffect!");
+        getPosts();
     }, []);
     function addResponse(post, msg) {
         console.log("Top of addResponse!");
