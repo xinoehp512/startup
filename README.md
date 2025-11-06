@@ -112,12 +112,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - Backend server up and running.
+- [x] **Static middleware for frontend** - The backend server serves up the frontend webpage.
+- [x] **Calls to third party endpoints** - Call to the XKCD API (on the profile page)
+- [x] **Backend service endpoints** - Backend server supports several endpoints for data storage.
+- [x] **Frontend calls service endpoints** - Frontend uses the endpoints to persist data (while the server is up, anyway)
+- [x] **Supports registration, login, logout, and restricted endpoint** - Registration, login, and logout implemented. Calls to the responses endpoint require authentication.
 
 
 ## 🚀 DB deliverable
