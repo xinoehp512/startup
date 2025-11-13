@@ -30,6 +30,10 @@ async function updateUser(user) {
   await userCollection.updateOne({ email: user.email }, { $set: user });
 }
 
+function getPosts() {
+  return postCollection.find({}).toArray();
+}
+
 function getPostByField(field, value) {
   return postCollection.findOne(Object.fromEntries([[field, value]]));
 }
@@ -43,9 +47,9 @@ async function updatePost(post) {
 }
 
 async function addResponse(postID, response) {
-  const post = await getPostByField("id", postID)
-  post.responses.push(response)
-  await updatePost(post)
+  const post = await getPostByField("id", postID);
+  post.responses.push(response);
+  await updatePost(post);
 }
 
 
@@ -55,4 +59,5 @@ module.exports = {
   addUser,
   updateUser,
   addResponse,
+  getPosts,
 };
