@@ -30,21 +30,29 @@ async function updateUser(user) {
   await userCollection.updateOne({ email: user.email }, { $set: user });
 }
 
+function getPostByField(field, value) {
+  return postCollection.findOne(Object.fromEntries([[field, value]]));
+}
+
 async function addPost(post) {
   await postCollection.insertOne(post);
 }
 
-addPost({
-  id: 0,
-  message: "User Unknown completed all their tasks today!",
-  responses: [
-    { user: "Alice", message: "Way to go!" },
-    { user: "Bob", message: "You can do this!" },
-  ]
-})
+async function updatePost(post) {
+  await postCollection.updateOne({ id: post.id }, { $set: post });
+}
+
+async function addResponse(postID, response) {
+  const post = await getPostByField("id", postID)
+  post.responses.push(response)
+  await updatePost(post)
+}
+
+
 
 module.exports = {
   getUserByField,
   addUser,
   updateUser,
+  addResponse,
 };
