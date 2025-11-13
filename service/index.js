@@ -8,16 +8,7 @@ const DB = require('./database.js');
 const authCookieName = 'token';
 
 
-let posts = [
-    {
-        id: 0,
-        message: "User Unknown completed all their tasks today!",
-        responses: [
-            { user: "Alice", message: "Way to go!" },
-            { user: "Bob", message: "You can do this!" },
-        ]
-    }
-];
+
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -83,16 +74,18 @@ apiRouter.get('/username', async (req, res) => {
 });
 
 apiRouter.get('/social/posts', verifyAuth, async (req, res) => {
+    const posts = await DB.getPosts()
     res.send({ posts: posts })
 });
 
-apiRouter.post('/social/posts/responses', verifyAuth, (req, res) => {
+apiRouter.post('/social/posts/responses', verifyAuth, async (req, res) => {
     const { id, message, username } = req.body;
-    const post = posts.find((post) => post.id == id)
-    if (post) {
-        post.responses.push({ user: username, message: message })
+    try {
+        const response = { user: username, message: message };
+        await DB.addResponse(id, response)
+        const posts = await DB.getPosts()
         res.send({ posts: posts });
-    } else {
+    } catch {
         res.status(404).send({ msg: 'Post not found.' });
     }
 });

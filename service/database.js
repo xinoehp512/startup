@@ -48,6 +48,9 @@ async function updatePost(post) {
 
 async function addResponse(postID, response) {
   const post = await getPostByField("id", postID);
+  if (!post) {
+    throw new Error('Post not found.');
+  }
   post.responses.push(response);
   await updatePost(post);
 }
