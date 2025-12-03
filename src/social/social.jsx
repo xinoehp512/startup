@@ -8,11 +8,15 @@ export function Social({ userName }) {
     // console.log("Top of social!");
     const [posts, setPosts] = React.useState([]);
     const [message, setMessage] = React.useState("");
+    // console.log("Posts:", posts)
+    // console.log("Message:", message)
     React.useEffect(() => {
         async function getPosts() {
             const response = await fetch("/api/social/posts");
             if (response?.status === 200) {
                 const body = await response.json();
+                // console.log("Get Posts!")
+                // console.log(body.posts)
                 setPosts(body.posts);
             } else {
                 const body = await response.json();
@@ -28,10 +32,23 @@ export function Social({ userName }) {
     }, []);
 
     function handleEvent(event) {
-        console.log(event);
+        let message = event.value;
+        let newPosts = [];
+        function updatePosts(posts) {
+            for (const post of posts) {
+                console.log(post.id, message.id)
+                if (post.id == message.id) {
+                    post.responses.push(message.response)
+                }
+                newPosts.push(post)
+            }
+            return newPosts
+        }
+        setPosts(updatePosts)
     }
     async function addResponse(postID, msg) {
-        Notifier.broadcastEvent(userName, EventType.MESSAGE, msg)
+        let chat_message = { user: userName, message: msg }
+        Notifier.broadcastEvent(userName, EventType.MESSAGE, { id: postID, response: chat_message })
         const response = await fetch("/api/social/posts/responses", {
             method: "post",
             body: JSON.stringify({ id: postID, message: msg, username: userName }),
@@ -41,34 +58,39 @@ export function Social({ userName }) {
         });
         if (response?.status === 200) {
             const body = await response.json();
+            // console.log("Add Response!")
+            // console.log(body.posts)
             setPosts(body.posts)
         } else {
             const body = await response.json();
             console.log(`⚠ Error: ${body.msg}`);
         }
     }
-    const postRows = posts.map((post, idx) => {
-        const responses = post.responses.map((r, i) => {
-            return <div className="response" key={i}>
-                <img src="favicon.png" />
-                {r.user}
-                <div><p>{r.message}</p></div>
-            </div>
-        });
-        return <div className="post" key={idx}>
-            <div className="message">{post.message}</div>
-            <div className="responses">
-                {responses}
-                <div className="response">
+    function createPostRows() {
+        // console.log("Rows reloaded.");
+        return posts.map((post, idx) => {
+            const responses = post.responses.map((r, i) => {
+                return <div className="response" key={i}>
                     <img src="favicon.png" />
-                    {userName}
-                    <input type="text" className="user-input" onChange={(e) => setMessage(e.target.value)} placeholder={"Commenting as " + userName} />
-                    <button type="submit" onClick={() => addResponse(post.id, message)}>Reply</button>
+                    {r.user}
+                    <div><p>{r.message}</p></div>
                 </div>
-            </div>
+            });
+            return <div className="post" key={idx}>
+                <div className="message">{post.message}</div>
+                <div className="responses">
+                    {responses}
+                    <div className="response">
+                        <img src="favicon.png" />
+                        {userName}
+                        <input type="text" className="user-input" onChange={(e) => setMessage(e.target.value)} placeholder={"Commenting as " + userName} />
+                        <button type="submit" onClick={() => addResponse(post.id, message)}>Reply</button>
+                    </div>
+                </div>
 
-        </div>
-    })
+            </div>
+        })
+    }
 
     // console.log("Bottom of social!");
     return (
@@ -91,7 +113,7 @@ export function Social({ userName }) {
                 </div>
             </section>
             <section className="chat">
-                {postRows}
+                {createPostRows()}
             </section>
         </main>
     );
