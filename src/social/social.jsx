@@ -2,9 +2,10 @@ import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './social.css';
+import { EventType, Notifier } from './notifier';
 
 export function Social({ userName }) {
-    console.log("Top of social!");
+    // console.log("Top of social!");
     const [posts, setPosts] = React.useState([]);
     const [message, setMessage] = React.useState("");
     React.useEffect(() => {
@@ -19,8 +20,18 @@ export function Social({ userName }) {
             }
         }
         getPosts();
+        Notifier.addHandler(handleEvent);
+
+        return () => {
+            Notifier.removeHandler(handleEvent);
+        };
     }, []);
+
+    function handleEvent(event) {
+        console.log(event);
+    }
     async function addResponse(postID, msg) {
+        Notifier.broadcastEvent(userName, EventType.MESSAGE, msg)
         const response = await fetch("/api/social/posts/responses", {
             method: "post",
             body: JSON.stringify({ id: postID, message: msg, username: userName }),
@@ -59,7 +70,7 @@ export function Social({ userName }) {
         </div>
     })
 
-    console.log("Bottom of social!");
+    // console.log("Bottom of social!");
     return (
         <main>
             <section className="friends-bar">
