@@ -1,4 +1,12 @@
 # CS 260 Notes
+Command to deploy:
+```
+./deployFiles.sh -k ~/Documents/.ssh/260-super-important-server-password.pem -h ryanrichards.click -s startup
+```
+Command to deploy simon:
+```
+./deployFiles.sh -k ~/Documents/.ssh/260-super-important-server-password.pem -h ryanrichards.click -s simon
+```
 
 ## Console commands
 - **echo** - Output the parameters of the command
@@ -146,14 +154,6 @@ Block elements force a new line: inline elements do not. `<span>` and `<b>` are 
 `<a href="">` and `<img alt="" src="">`
 The `form` element sends to the server the input from each contained input element, labeled with the input element's id.
 
-Command to deploy:
-```
-./deployFiles.sh -k ~/Documents/.ssh/260-super-important-server-password.pem -h ryanrichards.click -s startup
-```
-Command to deploy simon:
-```
-./deployFiles.sh -k ~/Documents/.ssh/260-super-important-server-password.pem -h ryanrichards.click -s simon
-```
 
 ## CSS
 ```css
