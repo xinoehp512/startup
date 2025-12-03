@@ -4,6 +4,10 @@ main,
 #root {
     display: flex;
     flex-direction: column;
+    flex: 1;
+}
+
+html {
     height: 100%;
 }
 
