@@ -24,8 +24,11 @@ function App() {
       const response = await fetch("/api/username");
       if (response?.status === 200) {
         const body = await response.json();
-        setAuthState(AuthState.Authenticated);
-        setUserName(body.userName);
+        console.log(body);
+        if (body.userName) {
+          setAuthState(AuthState.Authenticated);
+          setUserName(body.userName);
+        }
       } else {
         const body = await response.json();
         setDisplayError(`⚠ Error: ${body.msg}`);
